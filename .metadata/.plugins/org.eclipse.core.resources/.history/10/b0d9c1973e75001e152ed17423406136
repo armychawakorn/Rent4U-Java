@@ -1,0 +1,6 @@
+package pkrent4u.schema;
+
+public class Users {
+	private String username;
+	private String password;
+}

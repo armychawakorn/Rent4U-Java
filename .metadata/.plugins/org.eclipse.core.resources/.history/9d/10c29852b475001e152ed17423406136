@@ -1,0 +1,86 @@
+package pkrent4u.dao;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import pkrent4u.schema.Car;
+import pkrent4u.schema.Motorcycle;
+
+public class MotorcycleDAO {
+	private Connection con;
+    public MotorcycleDAO() throws ClassNotFoundException, SQLException {
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		this.con = DriverManager.getConnection("jdbc:mysql://localhost/rent4u?characterEncoding=utf-8", "root", "");
+	}
+	public void close() throws SQLException {
+		this.con.close();
+	}
+    public ArrayList<Motorcycle> getAllMotorcycles() throws SQLException{
+        ArrayList<Motorcycle> result = new ArrayList<Motorcycle>();
+        String sql = "SELECT * FROM motorcycle";
+        PreparedStatement stmt = this.con.prepareStatement(sql);
+        ResultSet rs = stmt.executeQuery();
+        while(rs.next()) {
+            Motorcycle motorcycle = new Motorcycle();
+            motorcycle.setMotorcycleID(rs.getString("MotorcycleID"));
+            motorcycle.setBrand(rs.getString("Brand"));
+            motorcycle.setModel(rs.getString("Model"));
+            motorcycle.setImage(rs.getString("Image"));
+            motorcycle.setYear(rs.getInt("Year"));
+            motorcycle.setRentalRatePerDay(rs.getInt("RentalRatePerDay"));
+            motorcycle.setAvailable(rs.getInt("Available"));
+            result.add(motorcycle);
+        }
+        return result;
+    }
+
+	public Motor getMotor(String ID) throws SQLException{
+		String sql = "SELECT * FROM motorcycle WHERE `MotorcycleID` = ?";
+		PreparedStatement stmt = this.con.prepareStatement(sql);
+		stmt.setString(1, ID);
+		ResultSet rs = stmt.executeQuery();
+		Motor motor = new Motor();
+		if(rs.next()) {
+			motor.setMotorID(rs.getString("MotorcycleID"));
+			motor.setBrand(rs.getString("Brand"));
+			motor.setModel(rs.getString("Model"));
+			motor.setImage(rs.getString("Image"));
+			motor.setYear(rs.getInt("Year"));
+			motor.setRentalRatePerDay(rs.getInt("RentalRatePerDay"));
+			motor.setAvailable(rs.getInt("Available"));
+		}
+		return car;
+	}
+    public void DeleteMotorcycle(Motorcycle motorcycle) throws SQLException {
+        String sql = "DELETE FROM motorcycle WHERE MotorcycleID = ?;";
+        PreparedStatement stmt = this.con.prepareStatement(sql);
+        stmt.setString(1, motorcycle.getMotorcycleID());
+        stmt.executeUpdate();
+    }
+    public void AddMotorcycle(Motorcycle motorcycle) throws SQLException {
+        String sql = "INSERT INTO `motorcycle` (`Brand`, `Model`, `Image`, `Year`, `RentalRatePerDay`, `Available`) VALUES (?,?,?,?,?,?);";
+        PreparedStatement stmt = this.con.prepareStatement(sql);
+        stmt.setString(1, motorcycle.getBrand());
+        stmt.setString(2, motorcycle.getModel());
+        stmt.setString(3, motorcycle.getImage());
+        stmt.setInt(4, motorcycle.getYear());
+        stmt.setInt(5, motorcycle.getRentalRatePerDay());
+        stmt.setInt(6, motorcycle.isAvailable());
+        stmt.executeUpdate();
+    }
+    public void UpdateMotorcycle(String ID, Motorcycle motorcycle) throws SQLException {
+        String sql = "UPDATE `motorcycle` SET `Brand` = ?, `Model` = ?, `Image` = ?, `Year` = ?, `RentalRatePerDay` = ?, `Available` = ? WHERE `motorcycle`.`MotorcycleID` = ?;";
+        PreparedStatement stmt = this.con.prepareStatement(sql);
+        stmt.setString(1, motorcycle.getBrand());
+        stmt.setString(2, motorcycle.getModel());
+        stmt.setString(3, motorcycle.getImage());
+        stmt.setInt(4, motorcycle.getYear());
+        stmt.setInt(5, motorcycle.getRentalRatePerDay());
+        stmt.setInt(6, motorcycle.isAvailable());
+        stmt.setString(7, ID);
+        stmt.executeUpdate();
+    }
+}

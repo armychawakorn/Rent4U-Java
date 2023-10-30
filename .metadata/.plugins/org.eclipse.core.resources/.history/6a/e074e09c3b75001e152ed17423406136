@@ -1,0 +1,58 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<div class="container">
+		<button class="navbar-toggler" type="button"
+			data-mdb-toggle="collapse" data-mdb-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<i class="fas fa-bars"></i>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<a class="navbar-brand mt-2 mt-lg-0" href="./"> <img
+				src="https://cdn.discordapp.com/attachments/965375341071847434/1160730098618601482/image.png"
+				height="32" alt="Rent4U" loading="lazy" />
+			</a>
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item"><a class="nav-link" href="./">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="./cars.jsp">Cars</a>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="./motors.jsp">Motors</a>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="./contact.jsp">Contact</a>
+				</li>
+				<li class="nav-item"><a class="nav-link" href="./faq.jsp">FAQ</a>
+				</li>
+			</ul>
+		</div>
+		<div class="dropdown">
+			<a class="dropdown-toggle d-flex align-items-center hidden-arrow"
+				href="#" id="navbarDropdownMenuAvatar" role="button"
+				data-mdb-toggle="dropdown" aria-expanded="false"> <img
+				src="https://cdn-icons-png.flaticon.com/512/9703/9703596.png"
+				class="rounded-circle" height="25"
+				alt="Black and White Portrait of a Man" loading="lazy" />
+			</a>
+			<ul class="dropdown-menu dropdown-menu-end"
+				aria-labelledby="navbarDropdownMenuAvatar">
+				<%
+				HttpSession ses = request.getSession();
+				String username = (String) ses.getAttribute("username");
+				%>
+				<%
+				if (username != null) {
+				%>
+				<li><a class="dropdown-item" href="#">My profile</a></li>
+				<li><a class="dropdown-item" href="#">Logout</a></li>
+				<%
+				} else {
+				%>
+				<li><a class="dropdown-item" href="#">Login</a></li>
+				<%
+				}
+				%>
+			</ul>
+		</div>
+	</div>
+	</div>
+</nav>

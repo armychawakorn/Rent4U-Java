@@ -1,0 +1,34 @@
+<%@page import="javax.crypto.spec.SecretKeySpec"%>
+<%@page import="java.util.Base64"%>
+<%@page import="javax.crypto.SecretKey"%>
+<%@page import="pkrent4u.crypto.IVGenerater"%>
+<%@page import="pkrent4u.schema.Car"%>
+<%@page import="pkrent4u.dao.CarDAO"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page import="java.util.ArrayList, pkrent4u.crypto.AesEncryption" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<% 
+		String phpKey = "7lVgi7DRa/Nj7YGnLBZC8WZCqdxfFn35x3oKik0dD94=";
+	
+	    // ข้อมูลที่ถูกเข้ารหัสใน PHP
+	    String encodedData = "ข้อมูลที่เข้ารหัสที่คุณได้จาก PHP";
+	
+	    // แปลงคีย์จาก Base64 String เป็น byte array
+	    byte[] keyBytes = Base64.getDecoder().decode(phpKey);
+	
+	    // สร้างคีย์จาก byte array
+	    SecretKey key = new SecretKeySpec(keyBytes, 0, keyBytes.length, "AES");
+	
+	    // ถอดรหัสข้อมูล
+	    String decodedData = AesEncryption.decodeData(encodedData, key);
+	%>
+	ข้อมูลที่เข้ารหัส: <%= encodedData %><br>
+	ข้อมูลที่ถอดรหัส: <%= decodedData %><br>
+</body>
+</html>

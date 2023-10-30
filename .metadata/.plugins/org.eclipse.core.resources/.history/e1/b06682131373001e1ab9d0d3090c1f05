@@ -1,0 +1,442 @@
+<%@page import="pkrent4u.schema.Car"%>
+<%@page import="pkrent4u.dao.CarDAO"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page import="java.util.ArrayList, pkrent4u.*" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Contact us</title>
+<link rel="icon" type="image/x-icon" href="https://cdn.discordapp.com/attachments/965375341071847434/1160730098618601482/image.png?ex=6535b924&is=65234424&hm=02edc80e5cc1c9b7937bdbc00efe262fb24180a3850827d298d32e71ee6a8d8b&">
+<link rel="stylesheet" href="css/Animetion.css">
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/Bootstrap.css">
+</head>
+<body>
+	<%@ include file="./components/Nav.jsp" %>
+	<section class="tmplContainerMain" role="main">
+			<table role="presentation" cellpadding="0" cellspacing="0" border="0" class="tmplLayoutTable">
+				<tbody><tr>
+					<td>
+						
+
+
+
+
+<div class="csContainer">	
+	<div class="csPageTitle">ติดต่อเรา </div>
+	<div class="csPageTitleImg spriteMiscellaneous"></div>	
+	<div class="csContactPara csMarginTop"><p>เฮิรทซ์มุ่งมั่นให้บริการแก่ลูกค้าในระดับสูงสุด โปรดดูตัวเลือกด้านล่างที่เราสามารถช่วยเหลือคุณได้.</p></div>
+	
+	<div class="csBottomLine csBold csFontThirteen">ติดต่อเรา </div>
+	<div class="csContactPara csMarginTop"><p>มีข้อสงสัยใช่ไหม หาคำตอบโดยไปที่ลิงก์ด้านล่าง.</p></div>
+	<div class="csContactPara"><ul class="noindent"><li><a title="Search Frequently Asked Questions by Keyword" href="/rentacar/customersupport/index.jsp?targetPage=faqsView.jsp">ค้นหาคำถามที่พบบ่อยโดยใช้คำหลัก&nbsp;</a>&nbsp;</li></ul><p>&nbsp;</p></div>
+	
+	<div class="csBottomLine csBold csFontThirteen">ส่งอีเมลหาเรา</div>
+	<div class="csContactPara csMarginTop"><p>ใช้ประเภทต่อไปนี้เพื่อส่งคำถามหรือความคิดเห็นของคุณให้เราทางอีเมล.</p></div>
+	<div class="csContactUL">	
+		<ul class="csLineHeight" id="csCategoryList">		
+				
+			
+			
+				
+				<li>
+					<form action="/rentacar/customersupport/index.jsp?targetPage=contactUsView.jsp&amp;CUS_key=2&amp;CUS_keyText=การเช่าที่ผ่าน&amp;CUS_routing=P&amp;CUS_category=CON_US_PAST_RENTAL" name="form0" method="POST"> 	
+						<input type="hidden" name="URL" value="/rentacar/customersupport/index.jsp?targetPage=contactUsView.jsp&amp;CUS_key=2&amp;CUS_keyText=การเช่าที่ผ่าน&amp;CUS_routing=P&amp;CUS_category=CON_US_PAST_RENTAL">							
+						<a href="javascript: void(0);" class="csCategoryLink">การเช่าที่ผ่าน</a>
+						
+					</form>
+				</li>
+			
+				
+				<li>
+					<form action="/rentacar/customersupport/index.jsp?targetPage=contactUsView.jsp&amp;CUS_key=6&amp;CUS_keyText=อัตรา&amp;CUS_routing=P&amp;CUS_category=CON_US_RATES_RES" name="form1" method="POST"> 	
+						<input type="hidden" name="URL" value="/rentacar/customersupport/index.jsp?targetPage=contactUsView.jsp&amp;CUS_key=6&amp;CUS_keyText=อัตรา&amp;CUS_routing=P&amp;CUS_category=CON_US_RATES_RES">							
+						<a href="javascript: void(0);" class="csCategoryLink">อัตรา</a>
+						
+					</form>
+				</li>
+			
+				
+				<li>
+					<form action="/rentacar/customersupport/index.jsp?targetPage=contactUsView.jsp&amp;CUS_key=4&amp;CUS_keyText=เดินทางบ่อย&amp;CUS_routing=P&amp;CUS_category=CON_US_FREQ_TRAV_PROGS" name="form2" method="POST"> 	
+						<input type="hidden" name="URL" value="/rentacar/customersupport/index.jsp?targetPage=contactUsView.jsp&amp;CUS_key=4&amp;CUS_keyText=เดินทางบ่อย&amp;CUS_routing=P&amp;CUS_category=CON_US_FREQ_TRAV_PROGS">							
+						<a href="javascript: void(0);" class="csCategoryLink">เดินทางบ่อย</a>
+						
+					</form>
+				</li>
+			
+				
+				<li>
+					<form action="/rentacar/customersupport/index.jsp?targetPage=contactUsView.jsp&amp;CUS_key=8&amp;CUS_keyText=ใช้หน้านี้&amp;CUS_routing=P&amp;CUS_category=CON_US_USE_SITE" name="form3" method="POST"> 	
+						<input type="hidden" name="URL" value="/rentacar/customersupport/index.jsp?targetPage=contactUsView.jsp&amp;CUS_key=8&amp;CUS_keyText=ใช้หน้านี้&amp;CUS_routing=P&amp;CUS_category=CON_US_USE_SITE">							
+						<a href="javascript: void(0);" class="csCategoryLink">ใช้หน้านี้</a>
+						
+					</form>
+				</li>
+			
+				
+				<li>
+					<form action="/rentacar/customersupport/index.jsp?targetPage=contactUsView.jsp&amp;CUS_key=1&amp;CUS_keyText=อัพเดทประวัติโกลด์ / สถานะ&amp;CUS_routing=P&amp;CUS_category=CON_US_GOLD_MEMBER" name="form4" method="POST"> 	
+						<input type="hidden" name="URL" value="/rentacar/customersupport/index.jsp?targetPage=contactUsView.jsp&amp;CUS_key=1&amp;CUS_keyText=อัพเดทประวัติโกลด์ / สถานะ&amp;CUS_routing=P&amp;CUS_category=CON_US_GOLD_MEMBER">							
+						<a href="javascript: void(0);" class="csCategoryLink">อัพเดทประวัติโกลด์ / สถานะ</a>
+						
+					</form>
+				</li>
+			
+				
+				<li>
+					<form action="/rentacar/customersupport/index.jsp?targetPage=contactUsView.jsp&amp;CUS_key=3&amp;CUS_keyText=โปรแกรมรางวัล เฮิรทซ์ # 1&amp;CUS_routing=P&amp;CUS_category=CON_US_1_AWARDS_PROGRAM" name="form5" method="POST"> 	
+						<input type="hidden" name="URL" value="/rentacar/customersupport/index.jsp?targetPage=contactUsView.jsp&amp;CUS_key=3&amp;CUS_keyText=โปรแกรมรางวัล เฮิรทซ์ # 1&amp;CUS_routing=P&amp;CUS_category=CON_US_1_AWARDS_PROGRAM">							
+						<a href="javascript: void(0);" class="csCategoryLink">โปรแกรมรางวัล เฮิรทซ์ # 1</a>
+						
+					</form>
+				</li>
+			
+				
+				<li>
+					<form action="/rentacar/customersupport/index.jsp?targetPage=contactUsView.jsp&amp;CUS_key=5&amp;CUS_keyText=การเช่าที่ผ่าน&amp;CUS_routing=P&amp;CUS_category=CON_US_PAST_BILL" name="form6" method="POST"> 	
+						<input type="hidden" name="URL" value="/rentacar/customersupport/index.jsp?targetPage=contactUsView.jsp&amp;CUS_key=5&amp;CUS_keyText=การเช่าที่ผ่าน&amp;CUS_routing=P&amp;CUS_category=CON_US_PAST_BILL">							
+						<a href="javascript: void(0);" class="csCategoryLink">การเช่าที่ผ่าน</a>
+						
+					</form>
+				</li>
+										
+		</ul>
+	</div>
+	
+	<div class="csBottomLine csBold csFontThirteen">ติดต่อเรา</div>
+	<div id="csCountrySel">	
+		
+
+
+
+
+<meta name="google-site-verification" content="7CAAu1uXJcCz40g1-wJVX3grIkYjhiWRT-X1NGp7Sy0">
+<link href="/rentacar/favicon.ico" type="image/x-icon" rel="shortcut icon">
+<link href="/rentacar/favicon.ico" type="image/x-icon" rel="icon">
+
+<link rel="stylesheet" type="text/css" href="/rentacar/theme/artifact/1697724687519/global.css" media="all">
+<script type="text/javascript" src="/rentacar/theme/artifact/1697724687519/popupglobal.js"></script>
+
+
+
+
+<!--[if (gt IE 8) | (IEMobile)]><!-->
+
+	
+		<link rel="stylesheet" href="/rentacar/assets/1697724687519/all/integrated/customersupport/style.css" media="all">
+	
+	
+
+<!--<![endif]-->
+
+<!--[if (lt IE 9) & (!IEMobile)]>
+	<link rel="stylesheet" href="/rentacar/assets/1697724687519/all/integrated/customersupport/ie_style.css" media="all" />
+<![endif]-->
+ 
+
+	
+
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">	
+<section id="htru-container">
+	<article class="htru-content">
+		
+			
+				
+					
+						<h2></h2>
+								
+					
+						<dl>
+							<dt><font color="blue">คุณมีอายุ 24 ปีหรือต่ำกว่า?</font></dt>
+							
+								<dd>
+									<span class="htru-content-title">ก่อนโทร กรุณาตรวจสอบข้อกำหนดของอายุ.</span>
+									<div class="htru-content-phone">
+										
+											<span><a class="rqr-policy" lang="AGE">นโยบายอายุ</a></span>
+										
+									</div>									
+									<span class="htru-content-line"></span>							
+								</dd>
+							
+						</dl>	
+							
+				
+					
+						<h2>ศูนย์สำรองไทย  </h2>
+								
+					
+						<dl>
+							<dt>จองภายในประเทศ</dt>
+							
+								<dd>
+									<span class="htru-content-title">หมายเลขโทรศัพท์:</span>
+									<div class="htru-content-phone">
+										
+											<span>662 2664666</span>
+										
+									</div>									
+									<span class="htru-content-line"></span>							
+								</dd>
+							
+								<dd>
+									<span class="htru-content-title">หมายเลขแฟกซ์:</span>
+									<div class="htru-content-phone">
+										
+											<span>662 2664360</span>
+										
+									</div>									
+									<span class="htru-content-line"></span>							
+								</dd>
+							
+								<dd>
+									<span class="htru-content-title">อีเมล: </span>
+									<div class="htru-content-phone">
+										
+											<span>reserve@hertzthailand.com</span>
+										
+									</div>									
+									<span class="htru-content-line"></span>							
+								</dd>
+							
+								<dd>
+									<span class="htru-content-title">เวลาทำการ:</span>
+									<div class="htru-content-phone">
+										
+											<span>จันทร์ - อาทิตย์: 7.30 - 19.00 น. </span>
+										
+									</div>									
+									<span class="htru-content-line"></span>							
+								</dd>
+							
+						</dl>	
+							
+				
+					
+						<h2></h2>
+								
+					
+						<dl>
+							<dt>จองต่างประเทศ </dt>
+							
+								<dd>
+									<span class="htru-content-title">หมายเลขโทรศัพท์:</span>
+									<div class="htru-content-phone">
+										
+											<span>+66 63 265 5194 </span>
+										
+									</div>									
+									<span class="htru-content-line"></span>							
+								</dd>
+							
+								<dd>
+									<span class="htru-content-title">หมายเลขแฟกซ์:</span>
+									<div class="htru-content-phone">
+										
+											<span>662 6351839</span>
+										
+									</div>									
+									<span class="htru-content-line"></span>							
+								</dd>
+							
+								<dd>
+									<span class="htru-content-title">อีเมล: </span>
+									<div class="htru-content-phone">
+										
+											<span>hertz@discovertheworldthailand.com</span>
+										
+									</div>									
+									<span class="htru-content-line"></span>							
+								</dd>
+							
+								<dd>
+									<span class="htru-content-title">เวลาทำการ:</span>
+									<div class="htru-content-phone">
+										
+											<span>จันทร์ - ศุกร์: 08.30 - 17.30 น.</span>
+										
+											<span>(หยุดเสาร์-อาทิตย์ และวันหยุดนักขัตฤกษ์)</span>
+										
+									</div>									
+									<span class="htru-content-line"></span>							
+								</dd>
+							
+						</dl>	
+							
+				
+					
+						<h2></h2>
+								
+					
+						<dl>
+							<dt>โกลด์พลัสรีวอร์ดส</dt>
+							
+								<dd>
+									<span class="htru-content-title">หมายเลขโทรศัพท์:</span>
+									<div class="htru-content-phone">
+										
+											<span>        +66 63 265 5194 </span>
+										
+									</div>									
+									<span class="htru-content-line"></span>							
+								</dd>
+							
+								<dd>
+									<span class="htru-content-title">อีเมล: </span>
+									<div class="htru-content-phone">
+										
+											<span>hertz@discovertheworldthailand.com</span>
+										
+									</div>									
+									<span class="htru-content-line"></span>							
+								</dd>
+							
+								<dd>
+									<span class="htru-content-title">เวลาทำการ:</span>
+									<div class="htru-content-phone">
+										
+											<span>จันทร์ - ศุกร์: 08.30 - 17.30 น.</span>
+										
+											<span>(หยุดเสาร์-อาทิตย์ และวันหยุดนักขัตฤกษ์)</span>
+										
+									</div>									
+									<span class="htru-content-line"></span>							
+								</dd>
+							
+						</dl>	
+							
+				
+			
+			
+			
+	</article>
+</section>
+	<script type="text/javascript">
+		
+
+
+
+
+  
+
+  
+
+
+var htz = htz || {};
+
+htz.version = '9.5';
+htz.config = {
+    pos: 'TH',      
+    dialect: 'thTH',           
+    ssl: false,
+    buildId : '1697724687519',          
+    protocol: 'https',
+    rootContext: '/rentacar', 
+    context: '/rentacar',      
+    fullContext: '/rentacar',            
+    targetPage: 'contactUsTypeSelectionView.jsp',
+    isOmnitureToLoad : true,
+    systemId: 'IRAC',
+    subSystemId: 'IRAC',
+    partnerId: '',
+    legacyPage : '',
+    rmc : false,
+    rmcPath : false ? '/modify' : '',
+    deviceGroup: (document.documentElement && document.documentElement.clientWidth < 600 && true) ? 'phone' : 'all',
+    orgDeviceGroup : 'all',
+    isApp : false,
+    isSPP : false,
+    apiDomain : 'https://api.hertz.com',
+  	isCountryinEuropeUnion: false,
+  	startURL : 'www.hertz.co.th',
+  	renderHtml:!false,
+  	digitalWalletFooter :{
+		displayMasterpassLogo:false
+	},
+	showAllExtras:false,
+	securitiId : 'Y',
+	securitiIdSequence : 'f21adfd6-bf9a-4887-93a6-6a10bc55304c',
+	currency:''			
+};
+
+htz.idleCustomer = {
+  	retry: false,
+  	timeout: 0,
+  	maxAttempts: 0,
+  	customerAttempts: 0
+};
+htz.faq = {
+    display: false,
+    URL: '',
+    overlayTitle: ''
+};
+htz.navigation = {
+  	homeURL: '/rentacar'
+};
+htz.content = {
+  ajaxFail: 'โปรดเลือกภาษา',
+  close: 'ปิด',
+  back: 'ย้อนกลับ/ออกจากหน้า',
+  previous: 'ก่อนหน้า ',
+  next: 'ถัดไป',
+  editLink: 'แก้ไข'
+};
+htz.eStara = {
+	customizedLocation : false,
+	text: '',
+	url: 'as00.estara.com/fs/lr.php?onload=1&accountid=200106292623'
+};
+htz.pageError = {
+	hasError : false,
+	errorCodes : ''
+};
+htz.browser = {
+	 upgradeWarningShown : ''
+};
+htz.commConfig = {
+	protocol : document.location.protocol
+};
+htz.localLoyaltyLogo = {
+	hertzGoldPlusImage : 'https://images.hertz.com/rentacar/e_member/misc/logo_hertz_goldplus_rev.png'
+};
+htz.appInfo = {
+  showOverlay : false
+};
+
+htz.idleCustomer.display = (htz.idleCustomer.retry && htz.config.pos == 'US');
+htz.idleCustomer.attemptsLeft = (htz.idleCustomer.maxAttempts - htz.idleCustomer.customerAttempts);
+
+var require = {
+	baseUrl: htz.config.rootContext + '/assets/'+htz.config.buildId+'/modules',
+	waitSeconds : 60
+};
+
+ 	</script>
+	
+
+
+<script type="text/javascript" src="/rentacar/assets/artifact/1697724687519/integrated/customersupport/customersupport.js"></script>			
+
+
+
+	</div>
+	
+	
+	<input type="hidden" id="csTitle" value="ติดต่อเรา ">
+	
+	
+</div>
+
+					</td>
+				</tr>
+			</tbody></table>
+		</section>
+</body>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.js"></script>
+</html>

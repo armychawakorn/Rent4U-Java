@@ -1,0 +1,99 @@
+package pkrent4u.dao;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import pkrent4u.schema.Rental;
+
+public class RentalDAO {
+	private Connection con;
+    public RentalDAO() throws ClassNotFoundException, SQLException {
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		this.con = DriverManager.getConnection("jdbc:mysql://localhost/rent4u?characterEncoding=utf-8", "root", "");
+	}
+	public void close() throws SQLException {
+		this.con.close();
+	}
+    public ArrayList<Rental> getAllRentals() throws SQLException{
+        ArrayList<Rental> result = new ArrayList<Rental>();
+        String sql = "SELECT r.*, CONCAT(c.Brand, ' ', c.Model) AS CarName, CONCAT(m.Brand, ' ', m.Model) AS MotorcycleName FROM rental AS r LEFT JOIN car AS c ON r.CarID = c.CarID LEFT JOIN motorcycle AS m ON r.MotorcycleID = m.MotorcycleID;";
+        PreparedStatement stmt = this.con.prepareStatement(sql);
+        ResultSet rs = stmt.executeQuery();
+        while(rs.next()) {
+            Rental rental = new Rental();
+            rental.setRentalID(rs.getInt("RentalID"));
+            rental.setCustomerID(rs.getString("CustomerID"));
+            rental.setCarID(rs.getString("CarID"));
+            rental.setMotorcycleID(rs.getString("MotorcycleID"));
+            rental.setEmployeeID(rs.getString("EmployeeID"));
+            rental.setRentalStartDate(rs.getString("RentalStartDate"));
+            rental.setRentalEndDate(rs.getString("RentalEndDate"));
+            rental.setTotalCost(rs.getInt("TotalCost"));
+            rental.setCarName(rs.getString("CarName"));
+            rental.setMotorcycleName(rs.getString("MotorcycleName"));
+            result.add(rental);
+        }
+        return result;
+    }
+    public Rental getRental(String rentalID) throws SQLException{
+    	Rental rental = null;
+        String sql = "SELECT r.*, CONCAT(c.Brand, ' ', c.Model) AS CarName, CONCAT(m.Brand, ' ', m.Model) AS MotorcycleName FROM rental AS r LEFT JOIN car AS c ON r.CarID = c.CarID LEFT JOIN motorcycle AS m ON r.MotorcycleID = m.MotorcycleID WHERE r.RentalID = ?;";
+        PreparedStatement stmt = this.con.prepareStatement(sql);
+        stmt.setString(1, rentalID);
+        ResultSet rs = stmt.executeQuery();
+        while(rs.next()) {
+            rental = new Rental();
+            rental.setRentalID(rs.getInt("RentalID"));
+            rental.setCustomerID(rs.getString("CustomerID"));
+            rental.setCarID(rs.getString("CarID"));
+            rental.setMotorcycleID(rs.getString("MotorcycleID"));
+            rental.setEmployeeID(rs.getString("EmployeeID"));
+            rental.setRentalStartDate(rs.getString("RentalStartDate"));
+            rental.setRentalEndDate(rs.getString("RentalEndDate"));
+            rental.setTotalCost(rs.getInt("TotalCost"));
+            rental.setCarName(rs.getString("CarName"));
+            rental.setMotorcycleName(rs.getString("MotorcycleName"));
+            result.add(rental);
+        }
+        return result;
+    }
+    public void DeleteRental(Rental rental) throws SQLException {
+        String sql = "DELETE FROM rental WHERE RentalID = ?;";
+        PreparedStatement stmt = this.con.prepareStatement(sql);
+        stmt.setInt(1, rental.getRentalID());
+        stmt.executeUpdate();
+    }
+    public void DeleteRental(String rental) throws SQLException {
+        String sql = "DELETE FROM rental WHERE RentalID = ?;";
+        PreparedStatement stmt = this.con.prepareStatement(sql);
+        stmt.setString(1, rental);
+        stmt.executeUpdate();
+    }
+    public void AddRental(Rental rental) throws SQLException {
+        String sql = "INSERT INTO `rental` (`CustomerID`, `CarID`, `MotorcycleID`, `EmployeeID`, `RentalStartDate`, `RentalEndDate`, `TotalCost`) VALUES (?,?,?,?,?,?,?);";
+        PreparedStatement stmt = this.con.prepareStatement(sql);
+        stmt.setString(1, rental.getCustomerID());
+        stmt.setString(2, rental.getCarID());
+        stmt.setString(3, rental.getMotorcycleID());
+        stmt.setString(4, rental.getEmployeeID());
+        stmt.setString(5, rental.getRentalStartDate());
+        stmt.setString(6, rental.getRentalEndDate());
+        stmt.setInt(7, rental.getTotalCost());
+        stmt.executeUpdate();
+    }
+    public void UpdateRental(String ID, Rental rental) throws SQLException {
+        String sql = "UPDATE `rental` SET `CustomerID` = ?, `CarID` = ?, `MotorcycleID` = ?, `EmployeeID` = ?, `RentalStartDate` = ?, `RentalEndDate` = ?, `TotalCost` = ? WHERE `rental`.`RentalID` = ?;";
+        PreparedStatement stmt = this.con.prepareStatement(sql);
+        stmt.setString(1, rental.getCustomerID());
+        stmt.setString(2, rental.getCarID());
+        stmt.setString(3, rental.getMotorcycleID());
+        stmt.setString(4, rental.getEmployeeID());
+        stmt.setString(5, rental.getRentalStartDate());
+        stmt.setString(6, rental.getRentalEndDate());
+        stmt.setInt(7, rental.getTotalCost());
+        stmt.setInt(8, rental.getRentalID());
+        stmt.executeUpdate();
+    }
+}

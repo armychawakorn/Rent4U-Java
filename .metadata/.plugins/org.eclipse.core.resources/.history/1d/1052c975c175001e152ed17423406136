@@ -1,0 +1,16 @@
+<%@page import="pkrent4u.dao.MotorcycleDAO"%>
+<%@page import="java.time.Duration"%>
+<%@page import="java.time.LocalDateTime"%>
+<%@page import="pkrent4u.schema.Rental"%>
+<%@page import="pkrent4u.dao.RentalDAO"%>
+<%@page import="pkrent4u.schema.Motorcycle"%>
+<%@page import="pkrent4u.schema.Car"%>
+<%@page import="pkrent4u.dao.CarDAO"%>
+<%@page import="java.util.ArrayList, pkrent4u.*"%>
+<%
+	String rentalID = request.getParameter("RentalID");
+	RentalDAO dao = new RentalDAO();
+	dao.getRental(rentalID);
+	CarDAO cardao = new CarDAO().getCar()
+	dao.DeleteRental(rentalID);
+%>

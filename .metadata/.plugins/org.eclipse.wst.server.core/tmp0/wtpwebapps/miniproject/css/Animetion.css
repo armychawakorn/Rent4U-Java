@@ -1,0 +1,42 @@
+.dashboard-fade {
+    animation: dashboard-fade 1s ease-in-out;
+    animation-fill-mode: forwards;
+}
+.col.mb-4{
+    transform-origin: center top;
+    transition-property: transform;
+    transition-duration: 0.5s;
+    transition-delay: 0s, 1s;
+    transition-timing-function: ease-out;
+}
+
+.col.mb-4:hover{
+    z-index: 1;
+    transform: scale(1.1, 1.1);
+}
+
+@keyframes dashboard-fade {
+    0% {
+        transform-origin: top center;
+        opacity: 0;
+        scale: 0.9;
+    }
+    100% {
+        transform-origin: top center;
+        opacity: 1;
+        scale: 1;
+    }
+}
+
+@keyframes dashboard-fadeout{
+    0% {
+        transform-origin: top center;
+        opacity: 1;
+        scale: 1;
+    }
+    100% {
+        transform-origin: top center;
+        opacity: 0;
+        scale: 0.9;
+    }
+}

@@ -1,0 +1,33 @@
+<%@page import="javax.crypto.SecretKey"%>
+<%@page import="pkrent4u.crypto.IVGenerater"%>
+<%@page import="pkrent4u.schema.Car"%>
+<%@page import="pkrent4u.dao.CarDAO"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@ page import="java.util.ArrayList, pkrent4u.crypto.AesEncryption" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<% 
+		String password = request.getParameter("password");
+		String inputKey = request.getParameter("key");
+		SecretKey key = AesEncryption.generateEncryptionKey();
+
+        // ข้อมูลที่จะเข้ารหัส
+        String dataToEncode = "115599@Armawfawfawfa";
+
+        // เข้ารหัสข้อมูล
+        String encodedData = AesEncryption.encodeData(dataToEncode, key);
+
+        // ถอดรหัสข้อมูล
+        String decodedData = AesEncryption.decodeData(encodedData, key);
+	%>
+	Key: <%= AesEncryption.keyToString(key) %><br>
+	ข้อมูลเริ่มต้น: <%= dataToEncode %><br>
+	ข้อมูลที่เข้ารหัส: <%= encodedData %><br>
+	ข้อมูลที่ถอดรหัส: <%= decodedData %><br>
+</body>
+</html>

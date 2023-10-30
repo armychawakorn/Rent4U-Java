@@ -1,0 +1,64 @@
+package pkrent4u.dao;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+
+import pkrent4u.schema.Payment;
+import pkrent4u.schema.Users;
+
+public class UsersDAO {
+	private Connection con;
+
+	public UsersDAO() throws ClassNotFoundException, SQLException {
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		this.con = DriverManager.getConnection("jdbc:mysql://localhost/rent4u?characterEncoding=utf-8", "root", "");
+	}
+
+	public void close() throws SQLException {
+		this.con.close();
+	}
+
+	public ArrayList<Users> getAllUsers() throws SQLException {
+		ArrayList<Users> result = new ArrayList<Users>();
+		String sql = "SELECT * FROM users";
+		PreparedStatement stmt = this.con.prepareStatement(sql);
+		ResultSet rs = stmt.executeQuery();
+		while (rs.next()) {
+			Users user = new Users();
+			user.setUsername(rs.getString("Username"));
+			user.setPassword(rs.getString("Password"));
+			result.add(user);
+		}
+		return result;
+	}
+
+	public void DeleteUser(Users users) throws SQLException {
+		String sql = "DELETE FROM users WHERE Username = ?;";
+		PreparedStatement stmt = this.con.prepareStatement(sql);
+		stmt.setString(1, users.getUsername());
+		stmt.executeUpdate();
+	}
+
+	public void AddPayment(Payment payment) throws SQLException {
+		String sql = "INSERT INTO `payment` (`RentalID`, `PaymentDate`, `Amount`) VALUES (?,?,?);";
+		PreparedStatement stmt = this.con.prepareStatement(sql);
+		stmt.setInt(1, payment.getRentalID());
+		stmt.setString(2, payment.getPaymentDate());
+		stmt.setInt(3, payment.getAmount());
+		stmt.executeUpdate();
+	}
+
+	public void UpdatePayment(String ID, Payment payment) throws SQLException {
+		String sql = "UPDATE `payment` SET `RentalID` = ?, `PaymentDate` = ?, `Amount` = ? WHERE `payment`.`PaymentID` = ?;";
+		PreparedStatement stmt = this.con.prepareStatement(sql);
+		stmt.setInt(1, payment.getRentalID());
+		stmt.setString(2, payment.getPaymentDate());
+		stmt.setInt(3, payment.getAmount());
+		stmt.setString(4, ID);
+		stmt.executeUpdate();
+	}
+}

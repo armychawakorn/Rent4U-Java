@@ -1,0 +1,36 @@
+<%@page import="pkrent4u.schema.Users"%>
+<%@page import="pkrent4u.crypto.AesEncryption"%>
+<%@page import="pkrent4u.dao.UsersDAO"%>
+<%@page import="pkrent4u.schema.Car"%>
+<%@page import="pkrent4u.dao.CarDAO"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<%@ page import="java.util.ArrayList, pkrent4u.*"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>getAdmin</title>
+</head>
+<body>
+	<%
+	String Username = null;
+	String Password = null;
+	UsersDAO dao = new UsersDAO();
+	if(dao.getAllUsers().toArray().length == 0){
+		Username = "root";
+		Password = AesEncryption.generateSecretKey(6);
+		Users user = new Users();
+		user.setUsername(Username);
+		user.setPassword(AesEncryption.encrypt(Password));
+		dao.AddUsers(user);
+	}else{
+	}
+	%>
+	<div class="d-flex">
+		<h1>Username: <%=Username%></h1>
+		<h1>Password: <%=Password%></h1>
+		<a href="../loginpage.jsp">Login!</a>
+	</div>
+</body>
+</html>

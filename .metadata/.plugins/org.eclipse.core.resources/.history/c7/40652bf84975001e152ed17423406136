@@ -1,0 +1,31 @@
+<%@page import="pkrent4u.schema.Users"%>
+<%@page import="pkrent4u.dao.UsersDAO"%>
+<%@page import="pkrent4u.schema.Car"%>
+<%@page import="pkrent4u.dao.CarDAO"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<%@ page import="java.util.ArrayList, pkrent4u.crypto.AesEncryption"%>
+<%
+String input_username = request.getParameter("username");
+String input_password = request.getParameter("password");
+HttpSession ses = request.getSession();
+String Username = (String) ses.getAttribute("username");
+if (Username != null) {
+	response.sendRedirect("../Admin/dashboard.jsp");
+	return;
+}
+UsersDAO dao = new UsersDAO();
+Users user = dao.getUser(input_username);
+boolean username_is_correct = input_username.equals(user.getUsername());
+boolean password_is_correct = input_password.equals(AesEncryption.decrypt(user.getPassword()));
+if(username_is_correct && password_is_correct){
+	response.sendRedirect("../Admin/dashboard.jsp");
+	return;
+}else{%>
+<script>
+	alert("UsernameหรือPasswordผิด!");
+	location.href = "../loginpage.jsp";
+</script>
+<%}%>
+<%=user.getUsername()%><br>
+<%=input_password.equals(AesEncryption.decrypt(user.getPassword()))%>

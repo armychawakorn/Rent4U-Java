@@ -1,0 +1,17 @@
+0:0:0:0:0:0:0:1 - - [14/Oct/2023:03:29:17 +0700] "GET /miniproject/Backend/login.jsp HTTP/1.1" 200 330
+0:0:0:0:0:0:0:1 - - [14/Oct/2023:03:29:19 +0700] "POST /miniproject/Backend/Validate.jsp HTTP/1.1" 200 193
+0:0:0:0:0:0:0:1 - - [14/Oct/2023:03:30:23 +0700] "GET /miniproject/Backend/login.jsp HTTP/1.1" 200 330
+0:0:0:0:0:0:0:1 - - [14/Oct/2023:03:30:24 +0700] "POST /miniproject/Backend/Validate.jsp HTTP/1.1" 200 212
+0:0:0:0:0:0:0:1 - - [14/Oct/2023:03:35:10 +0700] "POST /miniproject/Backend/Validate.jsp HTTP/1.1" 500 4005
+0:0:0:0:0:0:0:1 - - [14/Oct/2023:03:35:49 +0700] "GET /miniproject/Backend/login.jsp HTTP/1.1" 200 330
+0:0:0:0:0:0:0:1 - - [14/Oct/2023:03:37:10 +0700] "POST /miniproject/Backend/Validate.jsp HTTP/1.1" 500 4005
+0:0:0:0:0:0:0:1 - - [14/Oct/2023:03:42:36 +0700] "POST /miniproject/Backend/Validate.jsp HTTP/1.1" 500 3620
+0:0:0:0:0:0:0:1 - - [14/Oct/2023:03:44:15 +0700] "POST /miniproject/Backend/Validate.jsp HTTP/1.1" 500 3620
+0:0:0:0:0:0:0:1 - - [14/Oct/2023:04:07:12 +0700] "POST /miniproject/Backend/Validate.jsp HTTP/1.1" 500 3620
+0:0:0:0:0:0:0:1 - - [14/Oct/2023:04:09:37 +0700] "POST /miniproject/Backend/Validate.jsp HTTP/1.1" 500 3620
+0:0:0:0:0:0:0:1 - - [14/Oct/2023:04:09:48 +0700] "GET /miniproject/Backend/login.jsp HTTP/1.1" 200 330
+0:0:0:0:0:0:0:1 - - [14/Oct/2023:04:10:03 +0700] "POST /miniproject/Backend/Validate.jsp HTTP/1.1" 500 3620
+0:0:0:0:0:0:0:1 - - [14/Oct/2023:04:13:58 +0700] "POST /miniproject/Backend/Validate.jsp HTTP/1.1" 200 444
+0:0:0:0:0:0:0:1 - - [14/Oct/2023:04:14:10 +0700] "POST /miniproject/Backend/Validate.jsp HTTP/1.1" 200 460
+0:0:0:0:0:0:0:1 - - [14/Oct/2023:04:15:02 +0700] "POST /miniproject/Backend/Validate.jsp HTTP/1.1" 200 467
+0:0:0:0:0:0:0:1 - - [14/Oct/2023:04:22:59 +0700] "POST /miniproject/Backend/Validate.jsp HTTP/1.1" 500 3941
